@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Соцсети — НАУК(А)РТ</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ШАПКА -->
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="НАУК(А)РТ" class="logo-img">
+    </a>
+    <button class="burger" id="burger" aria-label="Открыть меню">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="menu" id="menu">
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="about.html">О проекте</a></li>
+      <li><a href="community.html">Сообщество</a></li>
+      <li><a href="contest.html">Конкурс</a></li>
+      <li><a href="social.html">Соцсети</a></li>
+      <li><a href="contacts.html">Контакты</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- КОНТЕНТ -->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Главная</a> / Соцсети</div>
+    <h1>Мы в социальных сетях</h1>
+    <p>Следите за новостями проекта</p>
+  </div>
+</section>
+
+<section class="page-content">
+  <div class="container">
+    <h2>Где нас найти</h2>
+    <ul>
+      <li><a href="https://vk.ru/wall271059038_926" target="_blank" rel="noopener">ВКонтакте — видеовизитка проекта</a></li>
+      <li>Telegram-канал (скоро)</li>
+      <li>Сообщество ВКонтакте (скоро)</li>
+    </ul>
+
+    <div class="placeholder" style="margin-top:2rem">
+      <strong>Раздел в разработке</strong>
+      Здесь появятся ссылки на все официальные каналы проекта.
+    </div>
+  </div>
+</section>
+
+<!-- ПОДВАЛ -->
+<footer id="contacts">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="logo" style="color:#fff;margin-bottom:14px">
+          <img src="logo.png" alt="НАУК(А)РТ" class="logo-img" style="filter:brightness(0) invert(1)">
+        </div>
+        <p style="opacity:.8;font-size:.92rem;max-width:320px">Лаборатория научных роликов для школьников и студентов Ульяновской области.</p>
+      </div>
+      <div>
+        <h5>Контакты</h5>
+        <a href="tel:+79639180157">+7 963 918-01-57</a>
+        <a href="mailto:denis.koshkin2018@yandex.ru">denis.koshkin2018@yandex.ru</a>
+        <a href="https://vk.ru/wall271059038_926" target="_blank" rel="noopener">Видеовизитка</a>
+      </div>
+      <div>
+        <h5>Навигация</h5>
+        <a href="about.html">О проекте</a>
+        <a href="community.html">Сообщество</a>
+        <a href="contest.html">Конкурс</a>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2027 «НАУК(А)РТ». Руководитель проекта — Кошкин Денис Витальевич.</div>
+  </div>
+</footer>
+
+<script>
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('menu');
+  if (burger && menu) {
+    burger.addEventListener('click', function(){ menu.classList.toggle('open'); });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ menu.classList.remove('open'); });
+    });
+  }
+</script>
+</body>
+</html>

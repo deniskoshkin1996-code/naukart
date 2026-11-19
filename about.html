@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>О проекте — НАУК(А)РТ</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ШАПКА -->
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="НАУК(А)РТ" class="logo-img">
+    </a>
+    <button class="burger" id="burger" aria-label="Открыть меню">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="menu" id="menu">
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="about.html">О проекте</a></li>
+      <li><a href="community.html">Сообщество</a></li>
+      <li><a href="contest.html">Конкурс</a></li>
+      <li><a href="social.html">Соцсети</a></li>
+      <li><a href="contacts.html">Контакты</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- КОНТЕНТ -->
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Главная</a> / О проекте</div>
+    <h1>О проекте «НАУК(А)РТ»</h1>
+    <p>Лаборатория научных роликов для школьников и студентов Ульяновской области</p>
+  </div>
+</section>
+
+<section class="page-content">
+  <div class="container">
+    <h2>Что такое НАУК(А)РТ</h2>
+    <p>«НАУК(А)РТ» — это лаборатория научных роликов, реализуемая в Ульяновской области для школьников 7–11 классов и студентов 1–2 курсов. Цель — создать устойчивое сообщество молодых научных коммуникаторов, которые творчески осмысляют естественные науки совместно с региональным сообществом всероссийского студенческого проекта «Твой Ход».</p>
+    <p>Проект представляет собой двухуровневую модель: интенсивное обучение, конкурсная практика и деятельность постоянного сообщества.</p>
+
+    <h3>Уровень 1. Клуб научных коммуникаторов</h3>
+    <p>Постоянно действующее сообщество, которое начнёт работу в феврале и продлится до ноября. В рамках клуба пройдёт 4-дневный интенсив для 20 самых мотивированных участников: мастер-классы и лекции от специалистов из Дома молодых, УлГПУ, РСМ, Движения Первых.</p>
+    <p>По итогам интенсива будет создано 10 эталонных научно-популярных видеороликов. Они станут частью открытой «Библиотеки научных видеороликов».</p>
+
+    <h3>Уровень 2. Конкурс «Наука в кадре»</h3>
+    <p>Конкурс научных видеороликов и научного контента для школьников и студентов Ульяновской области. Проходит с апреля по октябрь. Участвовать могут школьники и студенты, которые не прошли интенсив: они создают научные видеоролики и контент и соревнуются в пяти номинациях.</p>
+
+    <h3>Фестиваль «Наука в кадре»</h3>
+    <p>Завершение проекта — однодневный фестиваль, который объединит авторов интенсива, конкурсантов, экспертов, партнёров и зрителей.</p>
+  </div>
+</section>
+
+<!-- ПОДВАЛ -->
+<footer id="contacts">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="logo" style="color:#fff;margin-bottom:14px">
+          <img src="logo.png" alt="НАУК(А)РТ" class="logo-img" style="filter:brightness(0) invert(1)">
+        </div>
+        <p style="opacity:.8;font-size:.92rem;max-width:320px">Лаборатория научных роликов для школьников и студентов Ульяновской области.</p>
+      </div>
+      <div>
+        <h5>Контакты</h5>
+        <a href="tel:+79639180157">+7 963 918-01-57</a>
+        <a href="mailto:denis.koshkin2018@yandex.ru">denis.koshkin2018@yandex.ru</a>
+        <a href="https://vk.ru/wall271059038_926" target="_blank" rel="noopener">Видеовизитка</a>
+      </div>
+      <div>
+        <h5>Навигация</h5>
+        <a href="about.html">О проекте</a>
+        <a href="community.html">Сообщество</a>
+        <a href="contest.html">Конкурс</a>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2027 «НАУК(А)РТ». Руководитель проекта — Кошкин Денис Витальевич.</div>
+  </div>
+</footer>
+
+<script>
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('menu');
+  if (burger && menu) {
+    burger.addEventListener('click', function(){ menu.classList.toggle('open'); });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ menu.classList.remove('open'); });
+    });
+  }
+</script>
+</body>
+</html>

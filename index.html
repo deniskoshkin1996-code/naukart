@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>НАУК(А)РТ — лаборатория научных роликов</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ШАПКА -->
+<header class="site-header">
+  <div class="container nav">
+    <a href="index.html" class="logo">
+      <img src="logo.png" alt="НАУК(А)РТ" class="logo-img">
+    </a>
+    <button class="burger" id="burger" aria-label="Открыть меню">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="menu" id="menu">
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="about.html">О проекте</a></li>
+      <li><a href="community.html">Сообщество</a></li>
+      <li><a href="contest.html">Конкурс</a></li>
+      <li><a href="social.html">Соцсети</a></li>
+      <li><a href="contacts.html">Контакты</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- КОНТЕНТ -->
+<section class="hero" id="top">
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <span class="kicker">Ульяновская область · 2027</span>
+      <h1>Наука, которую<br><span class="accent">хочется смотреть</span></h1>
+      <p class="lead">«НАУК(А)РТ» — лаборатория научных роликов. Мы создаём сообщество молодых научных коммуникаторов, которые превращают физику, химию и биологию в зрелищный и понятный контент для школьников и студентов.</p>
+      <div class="hero-actions">
+        <a href="about.html" class="btn btn-primary">Узнать о проекте</a>
+        <a href="contest.html" class="btn btn-ghost">Принять участие</a>
+      </div>
+    </div>
+    <div class="mascot-wrap">
+      <div class="orbit"></div>
+      <div class="mascot mascot-float">
+        <img src="tiger.png" alt="Маскот НАУК(А)РТ — тигрёнок">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">О проекте</span>
+      <h2>Двухуровневая модель популяризации науки</h2>
+      <p>«НАУК(А)РТ» впервые в Ульяновской области объединяет открытый конкурс научных видеороликов и постоянно действующий Клуб научных коммуникаторов.</p>
+    </div>
+    <div class="about-grid">
+      <div class="card"><span class="num">1</span><h3>Клуб научных коммуникаторов</h3><p>Постоянно действующее сообщество: ежемесячные встречи, 4-дневный интенсив для 20 мотивированных участников, мастер-классы.</p></div>
+      <div class="card"><span class="num">2</span><h3>Конкурс «Наука в кадре»</h3><p>Открытый конкурс научных видеороликов и контента для школьников 7–11 классов и студентов 1–2 курсов. Пять номинаций.</p></div>
+      <div class="card"><span class="num">3</span><h3>Библиотека научных роликов</h3><p>10 эталонных научно-популярных видеороликов станут частью открытой библиотеки — бесплатного образовательного ресурса.</p></div>
+      <div class="card"><span class="num">4</span><h3>Фестиваль «Наука в кадре»</h3><p>Завершающее событие: интерактивное научное шоу, кинопоказ лучших работ и награждение победителей.</p></div>
+    </div>
+    <div class="levels">
+      <div class="level"><h4>Уровень 1 · Клуб</h4><p>Февраль — ноябрь. Ежемесячные встречи, интенсив, создание 10 эталонных роликов.</p></div>
+      <div class="level"><h4>Уровень 2 · Конкурс</h4><p>Апрель — октябрь. Привлечение новых участников, пять номинаций, методическая поддержка.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ПОДВАЛ -->
+<footer id="contacts">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="logo" style="color:#fff;margin-bottom:14px">
+          <img src="logo.png" alt="НАУК(А)РТ" class="logo-img" style="filter:brightness(0) invert(1)">
+        </div>
+        <p style="opacity:.8;font-size:.92rem;max-width:320px">Лаборатория научных роликов для школьников и студентов Ульяновской области.</p>
+      </div>
+      <div>
+        <h5>Контакты</h5>
+        <a href="tel:+79639180157">+7 963 918-01-57</a>
+        <a href="mailto:denis.koshkin2018@yandex.ru">denis.koshkin2018@yandex.ru</a>
+        <a href="https://vk.ru/wall271059038_926" target="_blank" rel="noopener">Видеовизитка</a>
+      </div>
+      <div>
+        <h5>Навигация</h5>
+        <a href="about.html">О проекте</a>
+        <a href="community.html">Сообщество</a>
+        <a href="contest.html">Конкурс</a>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2027 «НАУК(А)РТ». Руководитель проекта — Кошкин Денис Витальевич.</div>
+  </div>
+</footer>
+
+<script>
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('menu');
+  if (burger && menu) {
+    burger.addEventListener('click', function(){ menu.classList.toggle('open'); });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ menu.classList.remove('open'); });
+    });
+  }
+</script>
+</body>
+</html>
