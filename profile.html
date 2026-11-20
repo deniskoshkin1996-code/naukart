@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Личный кабинет — НАУК(А)РТ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ВСТАВЬТЕ СЮДА КОД ИЗ ПУНКТА 2 (ШАПКА) -->
+
+<section class="page-content">
+  <div class="container">
+    
+    <div id="loading" style="text-align: center; padding: 50px;">Загрузка...</div>
+
+    <!-- Если вошел -->
+    <div id="profileBox" style="display: none; max-width: 600px; margin: 0 auto; background: #fff; padding: 40px; border-radius: 18px; box-shadow: var(--shadow);">
+      <h1 style="color: var(--brand-dark); margin-bottom: 20px;">Личный кабинет</h1>
+      <p><strong>ФИО:</strong> <span id="pName"></span></p>
+      <p><strong>Заведение:</strong> <span id="pSchool"></span></p>
+      <p><strong>Город:</strong> <span id="pCity"></span></p>
+      <p><strong>Email:</strong> <span id="pEmail"></span></p>
+      <button id="logoutBtn" class="btn btn-ghost" style="margin-top: 20px;">Выйти</button>
+    </div>
+
+    <!-- Если не вошел -->
+    <div id="notLoggedIn" style="display: none; text-align: center; padding: 50px;">
+      <h2>Вы не авторизованы</h2>
+      <a href="login.html" class="btn btn-primary" style="margin-top: 20px;">Войти</a>
+    </div>
+  </div>
+</section>
+
+<!-- ВСТАВЬТЕ СЮДА КОД ИЗ ПУНКТА 3 (ПОДВАЛ) -->
+<script src="menu.js"></script>
+
+<script type="module">
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
+
+  // ВСТАВЬТЕ ВАШИ КЛЮЧИ ИЗ SUPABASE
+  const supabaseUrl = 'ВАШ_SUPABASE_URL'
+  const supabaseKey = 'ВАШ_ANON_KEY'
+  const supabase = createClient(supabaseUrl, supabaseKey)
+
+  const { data: { session } } = await supabase.auth.getSession()
+  document.getElementById('loading').style.display = 'none'
+
+  if (session) {
+    document.getElementById('profileBox').style.display = 'block'
+    
+    // Получаем профиль
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('*')
+      .eq('id', session.user.id)
+      .single()
+
+    if (profile) {
+      document.getElementById('pName').textContent = profile.full_name
+      document.getElementById('pSchool').textContent = profile.school
+      document.getElementById('pCity').textContent = profile.city
+      document.getElementById('pEmail').textContent = session.user.email
+    }
+  } else {
+    document.getElementById('notLoggedIn').style.display = 'block'
+  }
+
+  document.getElementById('logoutBtn').addEventListener('click', async () => {
+    await supabase.auth.signOut()
+    window.location.href = 'index.html'
+  })
+</script>
+</body>
+</html>

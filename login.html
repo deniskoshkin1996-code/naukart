@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вход — НАУК(А)РТ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ВСТАВЬТЕ СЮДА КОД ИЗ ПУНКТА 2 (ШАПКА) -->
+
+<section class="page-content" style="background: var(--soft); min-height: 70vh;">
+  <div class="container">
+    <div class="form-box" style="max-width: 400px; margin: 50px auto; background: #fff; padding: 40px; border-radius: 18px; box-shadow: var(--shadow);">
+      <h2 style="text-align: center; margin-bottom: 20px;">Вход в кабинет</h2>
+      
+      <form id="loginForm">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="loginEmail" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label>Пароль</label>
+          <input type="password" id="loginPassword" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Войти</button>
+      </form>
+      
+      <p style="text-align: center; margin-top: 20px;">
+        Нет аккаунта? <a href="register.html" style="color: var(--brand-teal); font-weight: bold;">Регистрация</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ВСТАВЬТЕ СЮДА КОД ИЗ ПУНКТА 3 (ПОДВАЛ) -->
+<script src="menu.js"></script>
+
+<script type="module">
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm'
+
+  // ВСТАВЬТЕ ВАШИ КЛЮЧИ ИЗ SUPABASE
+  const supabaseUrl = 'ВАШ_SUPABASE_URL'
+  const supabaseKey = 'ВАШ_ANON_KEY'
+  const supabase = createClient(supabaseUrl, supabaseKey)
+
+  document.getElementById('loginForm').addEventListener('submit', async (e) => {
+    e.preventDefault()
+    
+    const email = document.getElementById('loginEmail').value
+    const password = document.getElementById('loginPassword').value
+
+    const { error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password,
+    })
+
+    if (error) {
+      alert('Неверный email или пароль')
+    } else {
+      window.location.href = 'profile.html'
+    }
+  })
+</script>
+</body>
+</html>
